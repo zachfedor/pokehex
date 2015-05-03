@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>PokeHex</title>
+
+        <style type="text/css">
+         main { width: 75%; margin: 5rem auto; }
+         .error { color: red; }
+         #pt_output span { padding: 0 5px; }
+        </style>
+    </head>
+    <body>
+        <main>
+            <h1>PokeHex</h1>
+
+            <article id="pokeText">
+                <label for="pt_input">Enter a string: </label>
+                <input name="pt_input" id="pt_input" type="text" value=""/>
+
+                <button onclick="pokeText()">Translate to PokeHex</button>
+
+                <p>Your PokeText:  <span id="pt_output"></span></p>
+            </article>
+        </main>
+
+        <script type="text/javascript">
+         function pokeText() {
+             var ptInput = document.getElementById("pt_input").value;
+             var ptOutput = " ";
+             var errors = false;
+             var chars = ptInput.split('');
+             var pokeTextLookup = {
+                 "A": function() { return "80"; },
+                 "B": function() { return "81"; },
+                 "C": function() { return "82"; },
+                 "D": function() { return "83"; },
+                 "E": function() { return "84"; },
+                 "F": function() { return "85"; },
+                 "G": function() { return "86"; },
+                 "H": function() { return "87"; },
+                 "I": function() { return "88"; },
+                 "J": function() { return "89"; },
+                 "K": function() { return "8A"; },
+                 "L": function() { return "8B"; },
+                 "M": function() { return "8C"; },
+                 "N": function() { return "8D"; },
+                 "O": function() { return "8E"; },
+                 "P": function() { return "8F"; },
+                 "Q": function() { return "90"; },
+                 "R": function() { return "91"; },
+                 "S": function() { return "92"; },
+                 "T": function() { return "93"; },
+                 "U": function() { return "94"; },
+                 "V": function() { return "95"; },
+                 "W": function() { return "96"; },
+                 "X": function() { return "97"; },
+                 "Y": function() { return "98"; },
+                 "Z": function() { return "99"; },
+                 "(": function() { return "9A"; },
+                 ")": function() { return "9B"; },
+                 ":": function() { return "9C"; },
+                 ";": function() { return "9D"; },
+                 "[": function() { return "9E"; },
+                 "]": function() { return "9F"; },
+                 "a": function() { return "A0"; },
+                 "b": function() { return "A1"; },
+                 "c": function() { return "A2"; },
+                 "d": function() { return "A3"; },
+                 "e": function() { return "A4"; },
+                 "f": function() { return "A5"; },
+                 "g": function() { return "A6"; },
+                 "h": function() { return "A7"; },
+                 "i": function() { return "A8"; },
+                 "j": function() { return "A9"; },
+                 "k": function() { return "AA"; },
+                 "l": function() { return "AB"; },
+                 "m": function() { return "AC"; },
+                 "n": function() { return "AD"; },
+                 "o": function() { return "AE"; },
+                 "p": function() { return "AF"; },
+                 "q": function() { return "B0"; },
+                 "r": function() { return "B1"; },
+                 "s": function() { return "B2"; },
+                 "t": function() { return "B3"; },
+                 "u": function() { return "B4"; },
+                 "v": function() { return "B5"; },
+                 "w": function() { return "B6"; },
+                 "x": function() { return "B7"; },
+                 "y": function() { return "B8"; },
+                 "z": function() { return "B9"; },
+                 "-": function() { return "E3"; },
+                 "?": function() { return "E6"; },
+                 "!": function() { return "E7"; },
+                 ".": function() { return "E8"; },
+                 "*": function() { return "F1"; },
+                 "/": function() { return "F3"; },
+                 ",": function() { return "F4"; },
+                 "0": function() { return "F6"; },
+                 "1": function() { return "F7"; },
+                 "2": function() { return "F8"; },
+                 "3": function() { return "F9"; },
+                 "4": function() { return "FA"; },
+                 "5": function() { return "FB"; },
+                 "6": function() { return "FC"; },
+                 "7": function() { return "FD"; },
+                 "8": function() { return "FE"; },
+                 "9": function() { return "FF"; },
+                 " ": function() { return "7F"; }
+             }
+
+             var i;
+             for( i = 0; i < chars.length; ++i ) {
+                 if( /[A-Z():;\[\]a-z-?!.*/,0-9 ]/.test( chars[i] ) ) {
+                    ptOutput += '<span>' + pokeTextLookup[ chars[i] ]() + '</span>';
+                 } else {
+                     ptOutput += '<span class="error">' + chars[i] + '</span>';
+                     errors = true;
+                 }
+             }
+
+             document.getElementById("pt_output").innerHTML = ptOutput;
+         }
+        </script>
+    </body>
+</html>
