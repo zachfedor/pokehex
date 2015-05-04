@@ -1,0 +1,31 @@
+{
+  "name": "pokehex",
+  "version": "1.0.1",
+  "description": "utility to aid in rom hex editing",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "bower": "~1.3.5",
+    "gulp": "^3.8.11"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.2.1",
+    "browserify": "^9.0.7",
+    "gulp": "^3.8.11",
+    "gulp-autoprefixer": "^2.1.0",
+    "gulp-bower": "0.0.10",
+    "gulp-jshint": "^1.10.0",
+    "gulp-load-plugins": "^0.9.0",
+    "gulp-minify-css": "^0.4.6",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^1.3.3",
+    "gulp-uglify": "^1.1.0",
+    "jshint-stylish": "^1.0.1",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "zachfedor <zachfedor@gmail.com>",
+  "license": "MIT"
+}

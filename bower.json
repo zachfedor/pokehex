@@ -1,0 +1,20 @@
+{
+  "name": "pokehex",
+  "version": "0.0.1",
+  "authors": [
+    "zachfedor <zachfedor@gmail.com>"
+  ],
+  "main": "index.php",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "fontawesome": "~4.3.0",
+    "bootstrap-sass-official": "~3.3.3",
+    "jquery": "~2.1.3"
+  }
+}

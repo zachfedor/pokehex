@@ -1,0 +1,24 @@
+ # ignore all files starting with .
+\.*
+
+# include .gitignore (i.e. do NOT ignore)
+!.gitignore
+
+# ignore bower/node/gulp/composer dependencies
+bower_components/
+node_modules/
+npm-debug.log
+
+# ignore gulp generated files
+assets/dist/*
+
+# ignore server-specific files
+.htaccess
+
+# ignore IDE files
+.idea/
+
+# ignore OS files
+.DS_Store
+.trashes
+.localized
