@@ -6,8 +6,10 @@
 
         <style type="text/css">
          main { width: 75%; margin: 5rem auto; }
+         article { margin-bottom: 2rem; }
          .error { color: red; }
-         #pt_output span { padding: 0 5px; }
+         #pt_output span, #ph_output span { padding: 0 5px; }
+         #partyHex input { width: 50px;}
         </style>
     </head>
     <body>
@@ -16,11 +18,41 @@
 
             <article id="pokeText">
                 <label for="pt_input">Enter a string: </label>
-                <input name="pt_input" id="pt_input" type="text" value=""/>
+                <input id="pt_input" name="pt_input" type="text" value=""/>
 
                 <button onclick="pokeText()">Translate to PokeHex</button>
 
                 <p>Your PokeText:  <span id="pt_output"></span></p>
+            </article>
+
+            <article id="hexDec">
+                <label for="hd_hex">Hexadecimal: </label>
+                <input id="hd_hex" name="hd_hex" type="text" value=""/>
+                <br/>
+                <label for="hd_dec">Decimal: </label>
+                <input id="hd_dec" name="hd_dec" type="text" value=""/>
+                <br/>
+                <button onclick="hexToDec()">Convert to Decimal</button>
+                <button onclick="decToHex()">Convert to Hexadecimal</button>
+            </article>
+
+            <article id="partyHex">
+                <label for="ph_species">Species (hex): </label>
+                <input id="ph_species" name="ph_species" type="text" value=""/>
+                <label for="ph_item">Item (hex): </label>
+                <input id="ph_item" type="text" value=""/>
+                <label for="ph_move1">Move 1 #: </label>
+                <input id="ph_move1" name="" type="text" value=""/>
+                <label for="ph_move2">Move 2 #: </label>
+                <input id="ph_move2" name="" type="text" value=""/>
+                <label for="ph_move3">Move 3 #: </label>
+                <input id="ph_move3" name="" type="text" value=""/>
+                <label for="ph_move4">Move 4 #: </label>
+                <input id="ph_move4" name="" type="text" value=""/>
+                <br/>
+                <button onclick="partyHex()">Translate to Pokehex</button>
+
+                <p>Your PokeHex:  <span id="ph_output"></span></p>
             </article>
         </main>
 
@@ -120,6 +152,31 @@
              }
 
              document.getElementById("pt_output").innerHTML = ptOutput;
+         }
+
+         function hexToDec() {
+             var hex = document.getElementById("hd_hex").value;
+             var dec = parseInt(hex, 16);
+             document.getElementById("hd_dec").value = dec;
+         }
+
+         function decToHex() {
+             var dec = document.getElementById("hd_dec").value;
+             var hex = parseInt( dec ).toString(16).toUpperCase();
+             document.getElementById("hd_hex").value = hex;
+         }
+
+         function partyHex() {
+             var ph_moveNum;
+             var phOutput = '<span>' + document.getElementById("ph_species").value + '</span>';
+             phOutput += '<span>' + document.getElementById("ph_item").value + '</span>';
+
+             for( var i = 1; i < 5; ++i) {
+                ph_moveNum = document.getElementById( "ph_move" + i.toString() ).value;
+                phOutput += '<span>' + parseInt( ph_moveNum ).toString(16).toUpperCase() + '</span>';
+             }
+
+             document.getElementById("ph_output").innerHTML = phOutput;
          }
         </script>
     </body>
