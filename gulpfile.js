@@ -53,11 +53,11 @@ gulp.task('styles', function() {
 
 gulp.task('watch', function() {
     browsersync({
-        proxy: "http://pokehex.dev"
+        proxy: "http://localhost/pokehex/"
     });
     gulp.watch( config.sassDir + '/**/*.scss', [ 'styles' ]);
-    gulp.watch( config.jsDir + '/**/*.js', [ 'scripts' ]);
-    gulp.watch( "./**/*.php" ).on( 'change', browsersync.reload );
+    //gulp.watch( config.jsDir + '/**/*.js', [ 'scripts' ]);
+    //gulp.watch( "./**/*.php" ).on( 'change', browsersync.reload );
 });
 
 gulp.task( 'default', [ 'scripts', 'styles' ]);

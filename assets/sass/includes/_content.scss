@@ -1,0 +1,24 @@
+/**
+ * Content
+ */
+
+main {
+    width: 75%;
+    margin: 5rem auto;
+}
+
+article {
+    margin-bottom: 2rem;
+}
+
+.error {
+    color: red;
+}
+
+#pt_output span, #ph_output span {
+    padding: 0 5px;
+}
+
+#partyHex input {
+    width: 50px;
+}

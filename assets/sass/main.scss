@@ -3,12 +3,10 @@
 */
 
 // Bootstrap
-//@import "../../../../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_variables.scss";
-//@import "../../../../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_mixins.scss";
-//@import "../../../../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_grid.scss";
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 
 // Fontawesome
-//@import "../../../../../bower_components/fontawesome/css/font-awesome.min.css";
+@import "../../bower_components/fontawesome/css/font-awesome.min.css";
 
 // Variables
 //@import "includes/variables.scss";
@@ -22,5 +20,8 @@
 //@import "includes/footer.scss";
 
 // Content
-//@import "includes/content";
+@import "includes/content";
 
+main {
+    background: #aefefe;
+}
