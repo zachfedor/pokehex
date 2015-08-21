@@ -1,6 +1,6 @@
 var gulp = require( 'gulp' ),
     browserify = require( 'browserify' ),
-    browsersync = require( 'browser-sync' ),
+    browsersync = require( 'browser-sync' ).create(),
     source = require( 'vinyl-source-stream' );
 $ = require( 'gulp-load-plugins' )();
 
@@ -12,7 +12,22 @@ var config = {
     fontDir: assets + '/fonts',
     distDir: assets + '/dist',
     bowerDir: './bower_components'
-}
+};
+
+gulp.task('sync', function() {
+    browsersync.init({
+        server: {
+            baseDir: "../pokehex"
+        }
+    });
+//    browsersync.init({
+//    });
+//    browsersync.init( config, function ( err, browsersync ) {
+//        if( !err ) {
+            //console.log("BrowserSync is ready!");
+        //}
+    //});
+});
 
 gulp.task('icons', function() {
     return gulp.src( config.bowerDir + '/fontawesome/fonts/**.*' )
@@ -51,12 +66,10 @@ gulp.task('styles', function() {
         .pipe( browsersync.reload({ stream: true }));
 });
 
-gulp.task('watch', function() {
-    browsersync({
-        proxy: "http://localhost/pokehex/"
-    });
+gulp.task('watch', ['sync'], function() {
     gulp.watch( config.sassDir + '/**/*.scss', [ 'styles' ]);
     gulp.watch( config.jsDir + '/**/*.js', [ 'scripts' ]);
+    gulp.watch( "./**/*.html" ).on( 'change', browsersync.reload );
     gulp.watch( "./**/*.php" ).on( 'change', browsersync.reload );
 });
 
